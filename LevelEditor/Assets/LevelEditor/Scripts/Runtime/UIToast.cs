@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 namespace LevelEditor
 {
-    public class ToastUI : MonoBehaviour
+    public class UIToast : MonoBehaviour
     {
         public Text txt_msg;
         
         private Coroutine _coroutine;
-        private static ToastUI _uiToast;
+        private static UIToast _uiToast;
         
         public static void ShowToast(string content)
         {

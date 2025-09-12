@@ -11,9 +11,24 @@ namespace LevelEditor
         public InputField input_level_id;
         public Button btn_create_level;
         public Button btn_mod_level;
+        
+        private static UILevelEditor _ui;
+        
+        public static void ShowEditView()
+        {
+            _ui.obj_new_level.SetActive(false);
+            _ui.obj_edit_level.SetActive(true);
+        }
+        
+        public static void ShowNewView()
+        {
+            _ui.obj_new_level.SetActive(true);
+            _ui.obj_edit_level.SetActive(false);
+        }
 
         private void Awake()
         {
+            _ui = this;
             obj_new_level.SetActive(true);
             obj_edit_level.SetActive(false);
             
@@ -30,7 +45,7 @@ namespace LevelEditor
         {
             if(!CheckValid())
             {
-                ToastUI.ShowToast("LevelID 不合法");
+                UIToast.ShowToast("LevelID 不合法");
                 return;
             }
             
@@ -42,7 +57,7 @@ namespace LevelEditor
         {
             if(!CheckValid())
             {
-                ToastUI.ShowToast("LevelID 不合法");
+                UIToast.ShowToast("LevelID 不合法");
                 return;
             }
             
