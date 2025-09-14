@@ -20,5 +20,10 @@ namespace LevelEditor
         }
 
         public string LevelId;
+
+        public void GenerateGrid()
+        {
+            
+        }
     }
 }
