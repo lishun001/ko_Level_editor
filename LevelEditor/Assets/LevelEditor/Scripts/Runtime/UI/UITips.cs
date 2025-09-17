@@ -16,7 +16,7 @@ namespace LevelEditor
         
         private static UITips _uiTips;
         
-        public static void ShowTips(string content, Action onYes, Action onNo)
+        public static void ShowTips(string content, Action onYes = null, Action onNo = null)
         {
             _uiTips.Show(content, onYes, onNo);   
         }
@@ -35,6 +35,8 @@ namespace LevelEditor
 
         private void Show(string content, Action onYes, Action onNo)
         {
+            btn_yes.gameObject.SetActive(onYes != null);
+            btn_no.gameObject.SetActive(onNo != null);
             transform.Find("panel").gameObject.SetActive(true);
             txt_msg.text = content;
             _onYes = onYes;

@@ -31,6 +31,8 @@ namespace LevelEditor
             _ui = this;
             obj_new_level.SetActive(true);
             obj_edit_level.SetActive(false);
+            LevelEditorMgr.Instance.Init(obj_edit_level.GetComponent<UIItemEdit>());
+            LevelEditorMgr.Instance.CreateLevelDB();
             
             AddEvent();
         }

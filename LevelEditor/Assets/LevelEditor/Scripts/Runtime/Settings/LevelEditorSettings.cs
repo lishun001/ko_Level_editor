@@ -7,7 +7,6 @@ namespace LevelEditor
     [CreateAssetMenu(fileName = "LevelEditorSettings", menuName = "LevelEditor/LevelEditorSettings")]
     public class LevelEditorSettings : ScriptableObject
     {
-        public int LevelEditorVersion = 1;
         public List<ColorElement> Colors = new List<ColorElement>();
 
 

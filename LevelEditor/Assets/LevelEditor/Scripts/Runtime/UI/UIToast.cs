@@ -18,7 +18,6 @@ namespace LevelEditor
 
         private void Awake()
         {
-            Debug.Log("awake");
             _uiToast = this;
         }
 
