@@ -8,6 +8,7 @@ namespace LevelEditor
     {
         public Button btn_add_wall;
         public Button btn_add_pipeline;
+        public Button btn_rotate_pipeline;
         public Button btn_close;
 
         public override Type SelectType => typeof(UIItemCell);
@@ -17,6 +18,7 @@ namespace LevelEditor
         {
             btn_add_wall.onClick.AddListener(OnClickAddWall);
             btn_add_pipeline.onClick.AddListener(OnClickAddPipeline);
+            btn_rotate_pipeline.onClick.AddListener(OnClickRotatePipeline);
             btn_close.onClick.AddListener(OnClickClose);
         }
 
@@ -36,6 +38,11 @@ namespace LevelEditor
             {
                 LevelEditorMgr.Instance.ModLevelDB(uiItemCell.Row, uiItemCell.Col, CellType.PipelineMec);
             }
+        }
+        
+        private void OnClickRotatePipeline()
+        {
+            
         }
 
         private void OnClickAddWall()

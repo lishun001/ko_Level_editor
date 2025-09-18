@@ -19,6 +19,12 @@ namespace LevelEditor
         private void Awake()
         {
             btn_select.onClick.AddListener(OnClickSelect);
+            LevelEditorCallback.OnChangeState += OnChangeState;
+        }
+
+        private void OnChangeState(EOPState state)
+        {
+            btn_select.interactable = state == EOPState.GridEdit;
         }
 
         public void SetData(int row, int col, CellData cellData)
@@ -27,6 +33,7 @@ namespace LevelEditor
             Col = col;
             gameObject.name = $"Cell_{row}_{col}";
 
+            OnChangeState(LevelEditorMgr.Instance.State);
             wall_node.gameObject.SetActive(false);
             pipeline_node.gameObject.SetActive(false);
             if (cellData.type == CellType.Wall)
@@ -68,6 +75,11 @@ namespace LevelEditor
         private void OnClickSelect()
         {
             ((ISelectable) this).Select();
+        }
+
+        private void OnDestroy()
+        {
+            LevelEditorCallback.OnChangeState -= OnChangeState;
         }
     }
 }
